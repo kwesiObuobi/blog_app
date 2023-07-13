@@ -6,13 +6,7 @@ class Post < ApplicationRecord
   before_save :update_posts_counter
 
   def update_posts_counter
-    count = if author.posts_counter.nil?
-              0
-            else
-              author.posts_counter
-            end
-    author.posts_counter = count + 1
-    author.save
+    author.increment!(:posts_counter)
   end
 
   def five_recent_comments
