@@ -20,8 +20,9 @@ describe Like, type: :model do
 
   it 'should update the comments_counter' do
     new_user = User.create(name: 'Sam', photo: 'photo.url', bio: 'Excellent', posts_counter: 0)
-    new_post = Post.create(author: new_user, title: 'Let us go', text: 'This is the text for the post', comments_counter: 0, likes_counter: 0)
-    comment = Like.create(post: new_post, author: new_user)
+    new_post = Post.create(author: new_user, title: 'Let us go', text: 'This is the text for the post',
+                           comments_counter: 0, likes_counter: 0)
+    Like.create(post: new_post, author: new_user)
     expect(new_post.likes_counter).to eq(1)
   end
 end
