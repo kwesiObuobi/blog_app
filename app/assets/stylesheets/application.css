@@ -125,3 +125,28 @@
   border-radius: 0.5rem;
   margin-top: 0.5rem;
  }
+
+ /*
+ DETAILED POST /users/:user_id/posts/:id
+ */
+
+ .detailed-post-box {
+  margin-top: 1rem;
+ }
+
+ .username-and-counters {
+  display: flex;
+  justify-content: space-between;
+ }
+
+ .dp-username {
+  font-weight: bold;
+ }
+
+ .dp-text {
+  margin-top: 1.5rem;
+ }
+
+ .dp-comments {
+  margin-top: 0.8rem;
+ }
