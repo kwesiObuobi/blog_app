@@ -117,3 +117,11 @@
   border: 1px solid green;
   text-align: center;
  }
+
+ .comment-card {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+ }
