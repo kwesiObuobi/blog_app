@@ -7,10 +7,10 @@
       <p class="post-title"><%= post.title %></p>
       <small class="counters">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small>
 
-      <% if Comment.where(post_id: post.id).length.positive? %>
+      <% if post.five_recent_comments.length.positive? %>
         <div class="comment-card">
           <h3>Comments</h3>
-          <% Comment.where(post_id: post.id).each do |comment| %>
+          <% post.five_recent_comments.each do |comment| %>
             <p><%= comment.author.name %>: <%= comment.text %> </p>
           <% end %>
         </div>
