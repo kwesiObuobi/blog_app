@@ -1,1 +1,21 @@
-<p>Here is a details page for a given user</p>
+<%= render 'shared/user_card', user: @user %>
+
+<div class="bio-card container">
+  <h3 class="bio-card-header">Bio</h3>
+  <p><%= @user.bio %> </p>
+</div>
+
+<% @recent_posts.each_with_index do |post, index| %>
+  <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+    <div class="container recent_post">
+      <p class="post-num">Post #<%= index + 1 %></p>
+      <p class="post-title"><%= post.title %></p>
+      <small class="counters">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small>
+    </div>
+  </a>
+
+<% end %>
+
+<div class="btn-div">
+  <a href="/users/<%= @user.id %>/posts" class="see-all-posts">See all posts</a>
+</div>

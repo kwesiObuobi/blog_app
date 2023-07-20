@@ -1,1 +1,19 @@
-<p>Here is a details page for a specific post for a given user</p>
+<div class="detailed-post-box container">
+  <div class="username-and-counters">
+    <p class="dp-username">Post #1 by <%= @user.name %></p>
+    <small class="dp-counters">Comments: <%= @post.comments.length %>, Likes: <%= @post.likes.length %></small>
+  </div>
+
+  <p class="dp-text"><%= @post.text %></p>
+
+  <div class="dp-comments comment-card">
+    <h3>Comments</h3>
+    <% if !@post.comments.length.positive? %>
+      <p>No comments yet</p>
+    <% end %>
+
+    <% @post.comments.each do |comment| %>
+      <p><%= comment.author.name %>: <%= comment.text %> </p>
+    <% end %>
+  </div>
+</div>

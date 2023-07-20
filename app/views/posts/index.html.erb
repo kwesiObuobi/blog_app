@@ -1,1 +1,20 @@
-<p>Here is a list of posts for a given user</p>
+<%= render 'shared/user_card', user: @user %>
+
+<% @user.posts.each_with_index do |post, index| %>
+  <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+    <div class="container recent_post">
+      <p class="post-num">Post #<%= index + 1 %></p>
+      <p class="post-title"><%= post.title %></p>
+      <small class="counters">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small>
+
+      <% if post.five_recent_comments.length.positive? %>
+        <div class="comment-card">
+          <h3>Comments</h3>
+          <% post.five_recent_comments.each do |comment| %>
+            <p><%= comment.author.name %>: <%= comment.text %> </p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </a>
+<% end %>
