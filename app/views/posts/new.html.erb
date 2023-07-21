@@ -1,0 +1,22 @@
+<h1>Add New Post</h1>
+<% if @post.errors.any? %>
+    <div style="color: red" class="post-errors-box">
+      <h2><%= pluralize(@post.errors.count, "error") %> found:</h2>
+
+      <ul class="post-errors-ul">
+        <% @post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+<% end%>
+
+<%= form_with url: "/users/21/posts/create", model: @post do |form|%>
+  <%= form.label :title %>
+  <%= form.text_field :title%>
+  <br/>
+  <%= form.label :text %>
+  <%= form.text_field :text%>
+  <br/>
+  <%= form.submit%>
+
+<%end%>
