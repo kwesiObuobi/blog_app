@@ -11,4 +11,16 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
+
+  def create
+    @post = Post.new(params.require(:post).permit(:title, :text))
+    @post.author = current_user
+
+    if @post.save
+      flash[:success] = "Post saved successfully"
+      redirect_to '/'
+    else
+      render :new
+    end
+  end
 end
