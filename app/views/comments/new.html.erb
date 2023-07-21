@@ -1,0 +1,21 @@
+<h1>Add New Comment</h1>
+
+<% if @comment.errors.any? %>
+  <div class="comment-errors-box">
+    <p><%= pluralize(@comment.errors.count, "error") %> found:</p>
+
+    <ul class="comment-errors-ul">
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+<% end %>
+
+<%= form_with model: @comment, url: "/users/#{params[:id]}/posts/#{params[:post_id]}/comments/create" do |form|%>
+
+  <%= form.label :text, 'Input Comment' %>
+
+  <%= form.text_field :text%>
+  <br />
+  <%= form.submit%>
+<% end %>

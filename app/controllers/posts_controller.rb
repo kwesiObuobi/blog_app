@@ -20,7 +20,7 @@ class PostsController < ApplicationController
       flash[:success] = "Post saved successfully"
       redirect_to '/'
     else
-      render :new
+      render :new, status: 422
     end
   end
 end

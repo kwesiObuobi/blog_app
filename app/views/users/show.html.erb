@@ -6,13 +6,14 @@
 </div>
 
 <% @recent_posts.each_with_index do |post, index| %>
-  <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
-    <div class="container recent_post">
-      <p class="post-num">Post #<%= index + 1 %></p>
-      <p class="post-title"><%= post.title %></p>
-      <small class="counters">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small>
-    </div>
-  </a>
+  
+  <div class="container recent_post">
+    <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><p class="post-num">Post #<%= index + 1 %></p></a>
+    <p class="post-title"><%= post.title %></p>
+    <small class="counters">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small>
+
+    <a href="/users/<%= @user.id %>/posts/<%= post.id %>/comments/new" class="add-comment-box">Add a comment</a>
+  </div>
 
 <% end %>
 

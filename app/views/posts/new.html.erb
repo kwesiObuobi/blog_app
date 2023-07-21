@@ -10,7 +10,7 @@
     </ul>
 <% end %>
 
-<%= form_with url: "/users/new/posts", model: @post do |form| %>
+<%= form_with url: "/users/new/posts/create", model: @post, method: :post do |form| %>
   <%= form.label :title %>
   <%= form.text_field :title%>
   <br />
