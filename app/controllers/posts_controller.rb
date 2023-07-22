@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post.author = current_user
 
     if @post.save
-      flash[:success] = "Post saved successfully"
+      flash[:success] = 'Post saved successfully'
       redirect_to '/'
     else
       render :new, status: 422
