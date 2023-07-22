@@ -1,4 +1,6 @@
 <p>Here is a list of all users</p>
+
+<a href="/users/new/posts" class="add-post">Add new post</a>
 <% @users.each_with_index do |user, index| %>
   <a href="users/<%= user.id %>" class="home-card"><%= render 'shared/user_card', user: user%></a>
 <% end %>

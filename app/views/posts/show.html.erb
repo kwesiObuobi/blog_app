@@ -6,6 +6,9 @@
 
   <p class="dp-text"><%= @post.text %></p>
 
+  <%= render 'shared/like' %>
+  <a href="/users/<%= @user.id %>/posts/<%= @post.id %>/comments/new" class="add-comment-box">Add a comment</a>
+
   <div class="dp-comments comment-card">
     <h3>Comments</h3>
     <% if !@post.comments.length.positive? %>

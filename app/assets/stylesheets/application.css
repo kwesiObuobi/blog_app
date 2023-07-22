@@ -87,7 +87,6 @@ a {
 }
 
 .recent_post:hover {
-  cursor: pointer;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.3);
 }
 
@@ -149,4 +148,9 @@ a {
 
 .dp-comments {
   margin-top: 0.8rem;
+}
+
+.add-comment-box {
+  color: blue;
+  text-decoration: underline;
 }
