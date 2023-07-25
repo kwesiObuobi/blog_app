@@ -21,7 +21,7 @@ describe Post, type: :request do
       expect(response).to be_successful
       expect(response.status).to eq(200)
       expect(response).to render_template('posts/show')
-      expect(response.body).to include('Post #')
+      expect(response.body).to include("#{@post.title} by #{@user.name}")
     end
   end
 end
