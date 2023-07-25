@@ -46,7 +46,6 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -72,18 +71,18 @@ Clone this repository to your desired folder:
 <!-- ### Install -->
 
 Install this project with:
+
 ```
 bundle install
 ```
 
-
 ### Usage
 
 To run the project, execute the following command:
+
 ```
 rails server
 ```
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,6 +96,11 @@ rails server
 - Twitter: [@kwesi_obuobi](https://twitter.com/kwesi_obuobi)
 - LinkedIn: [kwesi-obuobi](https://www.linkedin.com/in/kwesi-obuobi/)
 
+👤 **Abel Tsegaye**
+
+- GitHub: [@abeltsew](https://github.com/abeltsew)
+- Twitter: [@abeltsew](https://twitter.com/abeltsew)
+- LinkedIn: [abeltsew](https://linkedin.com/in/abeltsew)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
