@@ -3,15 +3,15 @@
 <% @user.posts.each_with_index do |post, index| %>
   <div class="container recent_post">
     <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
-      <p class="post-num">Post #<%= index + 1 %></p>
+      <p class="post-num"><%= post.title %></p>
     </a>
-    <p class="post-title"><%= post.title %></p>
+    <p class="post-title"><%= post.text %></p>
     <small class="counters">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small>
 
     <% if post.five_recent_comments.length.positive? %>
       <div class="comment-card">
         <h3>Comments</h3>
-        <% post.five_recent_comments.each do |comment| %>
+        <% post.five_recent_comments.includes([:author]).each do |comment| %>
           <p><%= comment.author.name %>: <%= comment.text %> </p>
         <% end %>
       </div>
@@ -20,3 +20,6 @@
     <a href="/users/<%= @user.id %>/posts/<%= post.id %>/comments/new" class="add-comment-box">Add a comment</a>
   </div>
 <% end %>
+<div class="pagination-btn-container">
+  <button class="pagination-btn">Pagination</button>
+</div>

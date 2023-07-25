@@ -1,6 +1,6 @@
 <div class="detailed-post-box container">
   <div class="username-and-counters">
-    <p class="dp-username">Post #1 by <%= @user.name %></p>
+    <p class="dp-username"><%= @post.title %> by <%= @user.name %></p>
     <small class="dp-counters">Comments: <%= @post.comments.length %>, Likes: <%= @post.likes.length %></small>
   </div>
 
@@ -15,7 +15,7 @@
       <p>No comments yet</p>
     <% end %>
 
-    <% @post.comments.each do |comment| %>
+    <% @post.comments.includes([:author]).each do |comment| %>
       <p><%= comment.author.name %>: <%= comment.text %> </p>
     <% end %>
   </div>
