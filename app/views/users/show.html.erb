@@ -8,8 +8,8 @@
 <% @recent_posts.each_with_index do |post, index| %>
   
   <div class="container recent_post">
-    <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><p class="post-num">Post #<%= index + 1 %></p></a>
-    <p class="post-title"><%= post.title %></p>
+    <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><p class="post-num"><%= post.title %></p></a>
+    <p class="post-title"><%= post.text %></p>
     <small class="counters">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small>
 
     <a href="/users/<%= @user.id %>/posts/<%= post.id %>/comments/new" class="add-comment-box">Add a comment</a>
