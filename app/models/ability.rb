@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -31,6 +29,7 @@ class Ability
     can :read, Post
 
     return unless user.present?
+
     can :destroy, Post, author: user
     # can :destroy, Post.where(author_id: user.id)
 
@@ -38,6 +37,7 @@ class Ability
     can :destroy, Comment.where(author_id: user.id)
 
     return unless user.role == 'admin'
+
     can :destroy, Post
     can :destroy, Comment
   end
