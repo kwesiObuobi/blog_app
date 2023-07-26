@@ -36,6 +36,16 @@ a {
   color: inherit;
 }
 
+/*
+ USER INDEX /
+ */
+
+ .add-post-btn {
+  color: blue;
+  text-decoration: underline;
+  margin: 0.5rem;
+ }
+
 .container {
   width: var(--width-lg);
   margin: 0 auto;

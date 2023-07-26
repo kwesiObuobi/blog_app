@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :confirmable
   has_many :posts, foreign_key: :author_id
   has_many :comments, foreign_key: :author_id
   has_many :likes, foreign_key: :author_id
@@ -14,7 +18,8 @@ class User < ApplicationRecord
 
   def set_avatar
     max_id = User.maximum('id')
-    self.photo ||= "https://i.pravatar.cc/100?u=#{max_id + 1}"
+    new_id = max_id ? max_id + 1 : 1
+    self.photo ||= "https://i.pravatar.cc/100?u=#{new_id}"
   end
 
   def initialize_posts_counter
