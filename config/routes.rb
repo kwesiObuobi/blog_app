@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   get '/users/:id/posts/:post_id/comments/new', to: 'comments#new'
   post '/users/:id/posts/:post_id/comments/create', to: 'comments#create'
+  delete '/users/:id/posts/:post_id/comments/destroy', to: 'comments#destroy'
 
   post '/users/:id/posts/:post_id/likes/create', to: 'likes#create'
 end

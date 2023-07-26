@@ -12,7 +12,17 @@
       <div class="comment-card">
         <h3>Comments</h3>
         <% post.five_recent_comments.includes([:author]).each do |comment| %>
-          <p><%= comment.author.name %>: <%= comment.text %> </p>
+          <div class="single-comment-box">
+            <p><%= comment.author.name %>: <%= comment.text %></p>
+            <div>
+              <% if can? :destroy, comment %>
+                <%= form_with(model: @comment, url: "/users/#{@user.id}/posts/#{comment.post_id}/comments/destroy", method: :delete, data: { confirm: "Are you sure?" }) do |form| %>
+                  <%= form.hidden_field :comment_info, value: "#{comment.id}" %>
+                  <%= form.submit "Delete Comment" %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         <% end %>
       </div>
     <% end %>

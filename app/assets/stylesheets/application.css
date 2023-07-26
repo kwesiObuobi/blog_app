@@ -149,6 +149,11 @@ a {
   padding: 0.3rem;
 }
 
+.single-comment-box {
+  display: flex;
+  gap: 0.5rem;
+}
+
 /*
  DETAILED POST /users/:user_id/posts/:id
  */
