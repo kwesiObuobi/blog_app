@@ -13,6 +13,7 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <p>signed in user: <%= current_user.email if current_user %></p>
     <%= yield %>
   </body>
 </html>

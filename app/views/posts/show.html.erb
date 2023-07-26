@@ -8,6 +8,11 @@
 
   <%= render 'shared/like' %>
   <a href="/users/<%= @user.id %>/posts/<%= @post.id %>/comments/new" class="add-comment-box">Add a comment</a>
+  <% if can? :destroy, @post %>
+    <%= form_with(model: @post, url: "/users/#{params[:user_id]}/posts/#{params[:id]}", method: :delete, data: { confirm: "Are you sure?" }) do |form| %>
+      <%= form.submit "Delete Post" %>
+    <% end %>
+  <% end %>
 
   <div class="dp-comments comment-card">
     <h3>Comments</h3>
