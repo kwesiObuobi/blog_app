@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   after_initialize :initialize_posts_counter, :set_avatar
 
+  before_validation -> { self.name = email.split('@')[0] }
+
   private
 
   def set_avatar
