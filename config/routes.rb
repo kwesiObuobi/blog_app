@@ -18,4 +18,10 @@ Rails.application.routes.draw do
   delete '/users/:id/posts/:post_id/comments/destroy', to: 'comments#destroy'
 
   post '/users/:id/posts/:post_id/likes/create', to: 'likes#create'
+
+  namespace :api do
+    namespace :v1 do
+      get 'users/:user_id/posts', to: 'posts#index'
+    end
+  end
 end
