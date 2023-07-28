@@ -19,10 +19,11 @@ Rails.application.routes.draw do
 
   post '/users/:id/posts/:post_id/likes/create', to: 'likes#create'
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      get 'users/:user_id/posts', to: 'posts#index'
-      get 'posts/:post_id/comments', to: 'comments#index'
+      get '/users/:user_id/posts', to: 'posts#index'
+      get '/posts/:post_id/comments', to: 'comments#index'
+      post '/posts/:post_id/comments', to: 'comments#create'
     end
   end
 end
