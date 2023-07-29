@@ -1,4 +1,4 @@
-class Api::V1::CommentsController < ApplicationController
+class Api::V1::CommentsController < Api::ApiController
   before_action :authenticate_request, only: :create
 
   def index
@@ -12,7 +12,8 @@ class Api::V1::CommentsController < ApplicationController
     if @comment.save
       render json: { message: 'Comment created successfully' }, status: :created
     else
-      render json: { message: 'Something went wrong', errors: @comment.errors.full_messages }, status: :unprocessable_entity
+      render json: { message: 'Something went wrong', errors: @comment.errors.full_messages },
+             status: :unprocessable_entity
     end
   end
 
